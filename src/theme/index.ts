@@ -19,8 +19,8 @@ export const THEME = extendTheme(
       }
     },
     fonts: {
-      heading: 'Poppins_400Regular',
-      body: 'Poppins_600SemiBold',
+      heading: 'Poppins_800ExtraBold',
+      body: 'Poppins_400Regular',
     },
     fontSizes: {
       xs: 12,
