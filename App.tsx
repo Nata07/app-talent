@@ -4,6 +4,7 @@ import { NativeBaseProvider } from 'native-base';
 import { Loading } from './src/Component/Loading';
 import { THEME } from './src/theme';
 import { Routes } from './src/routes';
+import {Home} from './src/screens/Home';
 
 export default function App() {
 
@@ -18,7 +19,7 @@ export default function App() {
   return (
     <NativeBaseProvider theme={THEME}>
         <StatusBar translucent barStyle="dark-content" />
-        {fontsLoaded ? <Routes /> : <Loading /> }
+        {fontsLoaded ? <Home /> : <Loading /> }
     </NativeBaseProvider>
   );
 }
