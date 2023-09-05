@@ -3,7 +3,7 @@ import {useFonts, Poppins_400Regular, Poppins_800ExtraBold} from '@expo-google-f
 import { NativeBaseProvider } from 'native-base';
 import { Loading } from './src/Component/Loading';
 import { THEME } from './src/theme';
-import { SignIn } from './src/screens/SignIn';
+import { Routes } from './src/routes';
 
 export default function App() {
 
@@ -18,7 +18,7 @@ export default function App() {
   return (
     <NativeBaseProvider theme={THEME}>
         <StatusBar translucent barStyle="dark-content" />
-        {fontsLoaded ? <SignIn /> : <Loading /> }
+        {fontsLoaded ? <Routes /> : <Loading /> }
     </NativeBaseProvider>
   );
 }
