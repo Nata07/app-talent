@@ -4,30 +4,27 @@ import LogoImage from '../../assets/Brand.svg';
 import { Input } from "../../Component/Input";
 import { Button } from "../../Component/Button";
 
-export function SignIn() {
+export function SignUp() {
     return (
         <ScrollView contentContainerStyle={{flexGrow: 1,}} showsVerticalScrollIndicator={false}>
-            <VStack flex={1} bg="white" pb={16}>
+            <VStack flex={1} bg="white" pb={24}>
                 <Image w="full" source={BackgroundImage} alt="Background Image SignIn" resizeMode="cover" position="absolute" />
                 <Box mt={82} w="full" alignItems="center">
                     <LogoImage />
                 </Box>
-                <Center my={48}>
-                    <Heading fontSize={36} fontFamily="heading" letterSpacing={2} color="gray.500">Login</Heading>
-                    <Box mt={12} w="full" px={8}>
+                <Center mt={48}>
+                    <Heading fontSize={36} fontFamily="heading" letterSpacing={2} color="gray.500">Sign Up</Heading>
+                    <Box mt={10} w="full" px={8}>
+                        <Input label="Name" placeholder="Digite seu nome" />
+                        <Input label="Surname" placeholder="Digite seu email" />
                         <Input label="Email" keyboardType="email-address" autoCapitalize="none" placeholder="Digite seu email" />
-                        <Input label="Senha" secureTextEntry placeholder="Digite sua senha" />
+                        <Input label="Password" secureTextEntry placeholder="Digite sua senha" />
+                        <Input label="Confirm Password" secureTextEntry placeholder="Cofirme sua senha" />
 
-                        <Button title="Log In" bg="gray.900" />
+                        <Button title="Log In" bg="gray.900" mb={24} />
                     </Box>
-                    
-                    <Text fontFamily="body" color="gray.200" mt={6}>Or continue with</Text>
-                    <HStack w="full" mt={6} textAlign="center" justifyContent="center">
-                        <Text color="gray.300">Don’t have account? </Text>     
-                        <Text color="gray.900" fontFamily="heading">Create now </Text>     
-                    </HStack>
                 </Center>
             </VStack>
-        </ScrollView>
+        </ScrollView>  
     )
 }
