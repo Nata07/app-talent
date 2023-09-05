@@ -1,10 +1,19 @@
+import { useNavigation } from "@react-navigation/native";
 import { Box, Center, HStack, Heading, Image, Text, VStack, ScrollView } from "native-base";
 import BackgroundImage from '../../assets/background.png';
 import LogoImage from '../../assets/Brand.svg';
 import { Input } from "../../Component/Input";
 import { Button } from "../../Component/Button";
+import { AuthNavigatiorRoutesProps } from "../../routes/auth.routes";
+import { TouchableOpacity } from "react-native";
 
 export function SignIn() {
+    const navigation = useNavigation<AuthNavigatiorRoutesProps>();
+
+    function handleSignUp() {
+        navigation.navigate("signUp")
+    }
+
     return (
         <ScrollView contentContainerStyle={{flexGrow: 1,}} showsVerticalScrollIndicator={false}>
             <VStack flex={1} pb={16}>
@@ -23,8 +32,10 @@ export function SignIn() {
                     
                     <Text fontFamily="body" color="gray.200" mt={6}>Or continue with</Text>
                     <HStack w="full" mt={6} textAlign="center" justifyContent="center">
-                        <Text color="gray.300">Don’t have account? </Text>     
-                        <Text color="gray.900" fontFamily="heading">Create now </Text>     
+                        <Text color="gray.300">Don’t have account? </Text>
+                        <TouchableOpacity onPress={handleSignUp}>
+                            <Text color="gray.900" fontFamily="heading">Create now </Text>     
+                        </TouchableOpacity>     
                     </HStack>
                 </Center>
             </VStack>
