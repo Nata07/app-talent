@@ -3,8 +3,34 @@ import MenuIcon from '../../assets/menu1.svg'
 import NotificationIcon from '../../assets/notification.svg'
 import SearchIcon from '../../assets/search.svg'
 import FilterIcon from '../../assets/filter.svg'
+import ArrowRightIcon from '../../assets/arrow-right.svg'
 import MicrophoneIcon from '../../assets/microphone.svg'
 import BannerImage from '../../assets/banner-campagin.png'
+import { CategoryList } from "../../Component/CategoryList";
+import { CardCampaing } from "../../Component/CardCampaing";
+
+
+
+const categories = [
+    {
+        name: 'All'
+    },
+    {
+        name: 'Campaigns'
+    },
+    {
+        name: 'Goods'
+    },
+    {
+        name: 'Events'
+    },
+    {
+        name: 'Charity'
+    },
+    {
+        name: 'Volunteers'
+    },
+]
 
 export function Home() {
     return (
@@ -42,14 +68,31 @@ export function Home() {
                             borderRadius={10}
                             source={BannerImage}
                             alt="Banner Image"
-                            resizeMode="cover"
+                            resizeMode="contain"
                             w="full"
+                            h="full"
                         />
                     </AspectRatio>
                 </Box>
 
                 <Box>
                     <Heading fontSize={16} fontFamily={"heading"}>Categories</Heading>
+                    <CategoryList categories={categories} />
+                </Box>
+
+                <Box my={5}>
+                    <Heading fontSize={16} fontFamily={"heading"}>My Campaigns</Heading>
+                    <CardCampaing />
+                </Box>
+
+                <Box>
+                    <HStack alignItems="center" justifyContent="space-between">
+                        <Heading fontSize={16} fontFamily={"heading"}>Top Fundraisers</Heading>
+                        <Box flexDirection="row" alignItems="center">
+                            <Text color="green.500" mr={2}>See All</Text>
+                            <ArrowRightIcon />
+                        </Box>
+                    </HStack>
                 </Box>
             </VStack>
         </ScrollView>
