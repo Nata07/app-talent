@@ -6,12 +6,21 @@ import { Input } from "../../Component/Input";
 import { Button } from "../../Component/Button";
 import { AuthNavigatiorRoutesProps } from "../../routes/auth.routes";
 import { TouchableOpacity } from "react-native";
+import { useAuth } from "../../hooks/useAtuh";
+import { useState } from "react";
 
 export function SignIn() {
     const navigation = useNavigation<AuthNavigatiorRoutesProps>();
+    const { signIn } = useAuth();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
     function handleSignUp() {
         navigation.navigate("signUp")
+    }
+
+    function handleSign(email: string, password: string) {
+        signIn(email, password);
     }
 
     return (
@@ -24,10 +33,10 @@ export function SignIn() {
                 <Center my={48}>
                     <Heading fontSize={36} fontFamily="heading" letterSpacing={2} color="gray.500">Login</Heading>
                     <Box mt={12} w="full" px={8}>
-                        <Input label="Email" keyboardType="email-address" autoCapitalize="none" placeholder="Digite seu email" />
-                        <Input label="Senha" secureTextEntry placeholder="Digite sua senha" />
+                        <Input label="Email" keyboardType="email-address" value={email} onChangeText={(t) => setEmail(t)} autoCapitalize="none" placeholder="Digite seu email" />
+                        <Input label="Senha" secureTextEntry placeholder="Digite sua senha" value={password} onChangeText={(t) => setPassword(t)} />
 
-                        <Button title="Log In" bg="gray.900" />
+                        <Button title="Log In" bg="gray.900" onPress={() => handleSign(email, password)} />
                     </Box>
                     
                     <Text fontFamily="body" color="gray.200" mt={6}>Or continue with</Text>
