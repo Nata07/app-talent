@@ -20,19 +20,19 @@ type ImageByCategories = {
 
 export function CategoryList({categories = []}: CategoryProps) {
     const imageByCategories: ImageByCategories = {
-        "All": <Image source={AllImage} />,
-        "Campaigns": <Image source={CampaignsImage} />,
-        "Goods": <Image source={CharityImage} />,
-        "Events": <Image source={Eventsmage} />,
-        "Charity": <Image source={GoodsImage} />,
-        "Volunteers": <Image source={VolunteersImage} />,
+        "All": <Image source={AllImage} alt="All" />,
+        "Campaigns": <Image source={CampaignsImage} alt="Campaigns" />,
+        "Goods": <Image source={CharityImage} alt="Goods" />,
+        "Events": <Image source={Eventsmage} alt="Events" />,
+        "Charity": <Image source={GoodsImage} alt="Charity" />,
+        "Volunteers": <Image source={VolunteersImage} alt="Volunteers" />,
     }
 
     return (
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <HStack space={6} my={4}>
                 {categories.map(item => (
-                    <VStack alignItems="center" space={2}>
+                    <VStack key={item.name} alignItems="center" space={2}>
                         {imageByCategories[item.name]}                            
                         <Text fontSize={12}>{item.name}</Text>
                     </VStack>

@@ -10,7 +10,6 @@ import { CategoryList } from "../../Component/CategoryList";
 import { CardCampaing } from "../../Component/CardCampaing";
 
 
-
 const categories = [
     {
         name: 'All'
