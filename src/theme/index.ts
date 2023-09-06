@@ -19,7 +19,7 @@ export const THEME = extendTheme(
       }
     },
     fonts: {
-      heading: 'Poppins_800ExtraBold',
+      heading: 'Poppins_700Bold',
       body: 'Poppins_400Regular',
     },
     fontSizes: {
