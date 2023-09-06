@@ -10,6 +10,8 @@ import { Platform } from 'react-native';
 type AppRoutes = {
     home: undefined;
     profile: undefined;
+    saved: undefined;
+    settings: undefined;
     
 }
 
@@ -20,8 +22,12 @@ const { Navigator, Screen } = createBottomTabNavigator<AppRoutes>();
 
 export function AppRoutes() {
     return (
-        <Navigator>
+        <Navigator screenOptions={{
+            headerShown: false
+        }}>
             <Screen name='home' component={Home} />
+            <Screen name='saved' component={Profile} />
+            <Screen name='settings' component={Profile} />
             <Screen name='profile' component={Profile} />
         </Navigator>
     )
