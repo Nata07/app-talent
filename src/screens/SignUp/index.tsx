@@ -1,13 +1,21 @@
-import { Box, Center, HStack, Heading, Image, Text, VStack, ScrollView } from "native-base";
+import { Box, Center, Heading, Image, Text, VStack, ScrollView } from "native-base";
 import BackgroundImage from '../../assets/background.png';
 import LogoImage from '../../assets/Brand.svg';
 import { Input } from "../../Component/Input";
 import { Button } from "../../Component/Button";
+import { TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export function SignUp() {
+    const navigation = useNavigation();
+
+    function handleSignIn() {
+        navigation.goBack();
+    }
+
     return (
         <ScrollView contentContainerStyle={{flexGrow: 1,}} showsVerticalScrollIndicator={false}>
-            <VStack flex={1} bg="white" pb={24}>
+            <VStack flex={1} pb={24}>
                 <Image w="full" source={BackgroundImage} alt="Background Image SignIn" resizeMode="cover" position="absolute" />
                 <Box mt={82} w="full" alignItems="center">
                     <LogoImage />
@@ -21,7 +29,10 @@ export function SignUp() {
                         <Input label="Password" secureTextEntry placeholder="Digite sua senha" />
                         <Input label="Confirm Password" secureTextEntry placeholder="Cofirme sua senha" />
 
-                        <Button title="Log In" bg="gray.900" mb={24} />
+                        <Button title="Register" bg="gray.900" mb={6} />
+                        <TouchableOpacity onPress={handleSignIn}>
+                            <Text w="full" textAlign="center" color="gray.900" fontFamily="body"> {`<`} Back Login </Text>     
+                        </TouchableOpacity>    
                     </Box>
                 </Center>
             </VStack>
