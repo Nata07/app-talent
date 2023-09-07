@@ -8,6 +8,7 @@ import MicrophoneIcon from '../../assets/microphone.svg'
 import BannerImage from '../../assets/banner-campagin.png'
 import { CategoryList } from "../../Component/CategoryList";
 import { CardCampaing } from "../../Component/CardCampaing";
+import { useAuth } from "../../hooks/useAtuh";
 
 
 const categories = [
@@ -32,6 +33,7 @@ const categories = [
 ]
 
 export function Home() {
+    const {user} = useAuth();
     return (
         <ScrollView contentContainerStyle={{flexGrow: 1,}} showsVerticalScrollIndicator={false}>
             <VStack flex={1} pb={16} px={4} bg="#FBFBFB">
@@ -41,7 +43,7 @@ export function Home() {
                         <HStack space={4} alignItems="center">
                             <NotificationIcon />
                             <Avatar w={35} h={35} bg="green.500" source={{
-                                uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                                uri: user.avatar || 'https://cdn-icons-png.flaticon.com/512/6596/6596121.png'
                             }}/>
                         </HStack>    
                     </HStack>
