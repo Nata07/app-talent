@@ -1,4 +1,4 @@
-import { AspectRatio, Badge, Box, Center, HStack, Heading, Image, ScrollView, Stack, Text, VStack } from "native-base";
+import { AspectRatio, Badge, Box, Center, HStack, Heading, Image, ScrollView, Spinner, Stack, Text, VStack } from "native-base";
 import BackgroundImage from '../../assets/background-campaing.png';
 import { favoriteMovies } from "../../services/movies";
 import { useEffect, useState } from "react";
@@ -17,17 +17,19 @@ const moviesCategories = [
 ]
 export function Movies() {
   const [movieList, setMovieList] = useState([])
+  const [loading, setLoading] = useState(false)
+
   async function getMovies() {
+    setLoading(true)
     const {results} = await favoriteMovies();
 
     setMovieList(results)
+    setLoading(false)
   }
 
   useEffect(() => {
     getMovies();
   }, [])
-
-  console.log(`https://image.tmdb.org/t/p/original${movieList[0].backdrop_path}`)
 
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}}>
@@ -49,12 +51,13 @@ export function Movies() {
               ))}
             </HStack>
           </Box>
-
-          <VStack w="full" space={4} my={4}>
-            {movieList.map((item) => (
-              <MovieItem item={item} />
-            ))}
-          </VStack>
+          {loading ? (<Spinner mt={50} color="green.500" />) : (
+            <VStack w="full" space={4} my={4}>
+              {movieList.map((item) => (
+                <MovieItem item={item} />
+              ))}
+            </VStack>
+          )}
         </Box>
       </VStack>
     </ScrollView>

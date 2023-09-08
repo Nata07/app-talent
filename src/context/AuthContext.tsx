@@ -19,10 +19,10 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
         try {
             setUser({
                 id: '1',
-                name: 'Natanael',
+                name: 'Maria',
                 surname: 'Silva',
-                email: email,
-                avatar: 'https://avatars.githubusercontent.com/u/13895506?v=4'
+                email: 'maria@email.com.br',
+                avatar: 'https://image.tmdb.org/t/p/original/w2nFc2Rsm93PDkvjY4LTn17ePO0.jpg'
             })
         } catch (error) {
             console.log(error)
