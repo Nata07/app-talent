@@ -7,6 +7,7 @@ import ProfileIcon from '../assets/profile.svg'
 import SettingsIcon from '../assets/setting.svg'
 import SAvedIcon from '../assets/heart.svg'
 import { Platform } from 'react-native';
+import { Movies } from '../screens/Movies';
 
 type AppRoutes = {
     home: undefined;
@@ -40,7 +41,7 @@ export function AppRoutes() {
             />
             <Screen 
                 name='saved' 
-                component={Profile}
+                component={Movies}
                 options={{
                     tabBarIcon: () => (
                         <SAvedIcon />
